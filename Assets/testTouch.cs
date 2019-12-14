@@ -153,6 +153,15 @@ public class testTouch : MonoBehaviour
         tracking_image("/ImageTarget");
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void inisialisasi_materi()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menginisialisasi data isi materi dan judul materi
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     void inisialisasi_materi()
     {
         isi_materi.Add("Badan sel adalah bagian dari jaringan yang terbesar. Didalam badan sel terdapat nucleus yaitu inti sel jaringan saraf. Bagian ini berfungsi sebagai penerima impus atau rangsangan dari sitoplasma bercabang menuju akson."); //cell_body
@@ -171,6 +180,17 @@ public class testTouch : MonoBehaviour
         title_materi.Add("Nukleus");
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : public void detail_materi(int index)
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menampilkan popup card dari materi
+    * Parameter:
+    * int index = "NILAI DARI INDEX DARI VARIABEL isi_materi DAN title_materi"
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     public void detail_materi(int index)
     {
         close_card();
@@ -179,6 +199,15 @@ public class testTouch : MonoBehaviour
         popupcard_card.text = isi_materi[index];
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void load_data()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk memanggil selurh object yang ada pada object ImageTarget
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     void load_data()
     {
         /*
@@ -216,6 +245,15 @@ public class testTouch : MonoBehaviour
         popupcard.SetActive(false);       
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void disable_object_luar()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menyembunyikan papan nama kompenen saraf bagian luar
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     void disable_object_luar()
     {
         GameObject.Find("/ImageTarget/cell_body_detail").SetActive(false);
@@ -224,6 +262,15 @@ public class testTouch : MonoBehaviour
         GameObject.Find("/ImageTarget/sinapsis_detail").SetActive(false);
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void disable_object_dalam()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menyembunyikan papan nama kompenen saraf bagian dalam
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     void disable_object_dalam()
     {
         GameObject.Find("/ImageTarget/nukleus_detail").SetActive(false);
@@ -231,6 +278,15 @@ public class testTouch : MonoBehaviour
         GameObject.Find("/ImageTarget/akson_detail").SetActive(false);
     }
 
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void initialitation_line_luar()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk membuat garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf luar
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
     void initialitation_line_luar()
     {
         // Add a Line Renderer to the GameObject
@@ -263,9 +319,13 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void initialitation_line_dalam()
-    * Keterangan:
-    * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void initialitation_line_dalam()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk membuat garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf dalam
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
     */
     void initialitation_line_dalam()
     {
@@ -292,9 +352,15 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void trigger_inisialisasi_line()
-    * Keterangan:
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : public void trigger_inisialisasi_line(bool cek)
+    * DESKRIPSI:
     * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * PARAMETER:
+    * bool cek = "NILAI DARI BUTTON"
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
     */
     public void trigger_inisialisasi_line(bool cek)
     {
@@ -314,9 +380,13 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void destroy_line_object_luar()
-    * Keterangan:
-    * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void destroy_line_object_luar()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menghapus garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf luar
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
     */
     void destroy_line_object_luar()
     {
@@ -331,9 +401,13 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void destroy_line_object_dalam()
-    * Keterangan:
-    * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void destroy_line_object_dalam()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menghapus garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf dalam
+    * STATUS :
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
     */
     void destroy_line_object_dalam()
     {
@@ -346,9 +420,13 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void close_card()
-    * Keterangan:
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void close_card()
+    * DESKRIPSI:
     * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * STATUS :
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
     */
     public void close_card()
     {
@@ -356,11 +434,15 @@ public class testTouch : MonoBehaviour
     }
 
     /*
-    * void tracking_image(string image_target_name)
-    * Keterangan:
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void tracking_image(string image_target_name)
+    * DESKRIPSI:
     * Fungsi yang digunakan untuk menutup popup dari detail materi
-    * Parameter:
-    * string image_target_name = dipakai untuk mewakili nama dari object yang dipanggil
+    * PARAMETER:
+    * string image_target_name = "NAMA OBJECT"
+    * STATUS :
+    * Process
+    * ----------------------------------------------------------------------------------------------------------
     */
     void tracking_image(string image_target_name)
     {
