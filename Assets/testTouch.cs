@@ -9,7 +9,7 @@ public class testTouch : MonoBehaviour
     private UnityEngine.UI.Text popupcard_title,popupcard_card;
     private GameObject cell_body_label,myelin_label,dendrite_label,sinapsis_label,akson_label,sell_schawann_label,nukleus_label;
     private LineRenderer cell_body_line,myelin_line,dendrite_line,sinapsis_line,akson_line,sell_schawann_line,nukleus_line;
-    public bool detail_luar = false, detail_dalam = false;
+    public bool detail_luar = false, detail_dalam = false, count_detect = false;
     private List<string> isi_materi = new List<string>();
     private List<string> title_materi = new List<string>();
 
@@ -23,6 +23,7 @@ public class testTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool detection_cek = tracking_image("/ImageTarget");
         //Debug.Log("TESTTT");
         if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
@@ -107,7 +108,23 @@ public class testTouch : MonoBehaviour
                 }
             }
         }
-        if(detail_luar == true)
+        if(detection_cek == false)
+        {
+            if(count_detect){
+                if(detail_luar == true) enable_disable_line_object_luar(true);
+                if(detail_dalam == true) enable_disable_line_object_dalam(true);
+                count_detect = false;   
+            }
+        }else
+        {
+            if(count_detect == false)
+            {
+                if(detail_luar == true) enable_disable_line_object_luar(false);
+                if(detail_dalam == true) enable_disable_line_object_dalam(false);
+                count_detect = true;
+            }
+        }
+        if(detail_luar && detection_cek)
         {
             if(cell_body != null && cell_body_label != null)
             {
@@ -131,7 +148,7 @@ public class testTouch : MonoBehaviour
                 sinapsis_line.SetPosition(1, sinapsis_label.transform.position);
             }
         }
-        else if(detail_dalam == true)
+        else if(detail_dalam && detection_cek)
         {
             if(akson != null && akson_label != null)
             {
@@ -150,7 +167,6 @@ public class testTouch : MonoBehaviour
             }
         }
         //falling_card();
-        tracking_image("/ImageTarget");
     }
 
     /*
@@ -364,18 +380,21 @@ public class testTouch : MonoBehaviour
     */
     public void trigger_inisialisasi_line(bool cek)
     {
-        if(cek == true)
-        {
-            if(detail_dalam == true) destroy_line_object_dalam();
-            initialitation_line_luar();
-            detail_luar = true;
-            detail_dalam = false;
-        }else
-        {
-            if(detail_luar == true) destroy_line_object_luar();
-            initialitation_line_dalam();
-            detail_luar = false;
-            detail_dalam = true;
+        if(tracking_image("/ImageTarget")){
+            if(cek == true)
+            {
+                if(detail_dalam == true) destroy_line_object_dalam();
+                initialitation_line_luar();
+                detail_luar = true;
+                detail_dalam = false;
+            }else
+            {
+                if(detail_luar == true) destroy_line_object_luar();
+                initialitation_line_dalam();
+                detail_luar = false;
+                detail_dalam = true;
+            }
+            //count_detect = true;
         }
     }
 
@@ -390,10 +409,10 @@ public class testTouch : MonoBehaviour
     */
     void destroy_line_object_luar()
     {
-        Destroy(cell_body_line.gameObject, 0);
-        Destroy(myelin_line.gameObject, 0);
-        Destroy(dendrite_line.gameObject, 0);
-        Destroy(sinapsis_line.gameObject, 0);
+        if(cell_body_line != null) Destroy(cell_body_line.gameObject, 0);
+        if(myelin_line != null) Destroy(myelin_line.gameObject, 0);
+        if(dendrite_line != null) Destroy(dendrite_line.gameObject, 0);
+        if(sinapsis_line != null) Destroy(sinapsis_line.gameObject, 0);
         /*cell_body_line.enabled = false;
         myelin_line.enabled = false;
         dendrite_line.enabled = false;
@@ -411,12 +430,62 @@ public class testTouch : MonoBehaviour
     */
     void destroy_line_object_dalam()
     {
-        Destroy(sell_schawann_line.gameObject, 0);
-        Destroy(akson_line.gameObject, 0);
-        Destroy(nukleus_line.gameObject, 0);
+        if(sell_schawann_line != null) Destroy(sell_schawann_line.gameObject, 0);
+        if(akson_line != null) Destroy(akson_line.gameObject, 0);
+        if(nukleus_line != null) Destroy(nukleus_line.gameObject, 0);
         /*sell_schawann_line.enabled = false;
         akson_line.enabled = false;
         nukleus_line.enabled = false;*/
+    }
+
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void enable_disable_line_object_luar()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menghapus garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf luar
+    * STATUS:
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
+    void enable_disable_line_object_luar(bool cek)
+    {
+        if(cek)
+        {
+            if(cell_body_line != null) cell_body_line.enabled = false;
+            if(myelin_line != null) myelin_line.enabled = false;
+            if(dendrite_line != null) dendrite_line.enabled = false;
+            if(sinapsis_line != null) sinapsis_line.enabled = false;
+        }else
+        {
+            if(cell_body_line != null) cell_body_line.enabled = true;
+            if(myelin_line != null) myelin_line.enabled = true;
+            if(dendrite_line != null) dendrite_line.enabled = true;
+            if(sinapsis_line != null) sinapsis_line.enabled = true;
+        }
+    }
+
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void enable_disable_line_object_dalam()
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menghapus garis yang menghubungkan antara nama komponen saraf dengan bagian komponen saraf dalam
+    * STATUS :
+    * Done
+    * ----------------------------------------------------------------------------------------------------------
+    */
+    void enable_disable_line_object_dalam(bool cek)
+    {
+        if(cek)
+        {
+            if(sell_schawann_line != null) sell_schawann_line.enabled = false;
+            if(akson_line != null) akson_line.enabled = false;
+            if(nukleus_line != null) nukleus_line.enabled = false;
+        }else
+        {
+            if(sell_schawann_line != null) sell_schawann_line.enabled = true;
+            if(akson_line != null) akson_line.enabled = true;
+            if(nukleus_line != null) nukleus_line.enabled = true;
+        }
     }
 
     /*
@@ -435,7 +504,7 @@ public class testTouch : MonoBehaviour
 
     /*
     * -------------------------------------------- KETERANGAN -------------------------------------------------
-    * NAMA : void tracking_image(string image_target_name)
+    * NAMA : bool tracking_image(string image_target_name)
     * DESKRIPSI:
     * Fungsi yang digunakan untuk menutup popup dari detail materi
     * PARAMETER:
@@ -444,13 +513,10 @@ public class testTouch : MonoBehaviour
     * Process
     * ----------------------------------------------------------------------------------------------------------
     */
-    void tracking_image(string image_target_name)
+    bool tracking_image(string image_target_name)
     {
         GameObject image_target = GameObject.Find(image_target_name);
         DefaultTrackableEventHandler trackable = image_target.GetComponent<DefaultTrackableEventHandler>();
-        //var status = trackable.CurrentStatus;
-        //return status == TrackableBehaviour.Status.TRACKED;
-        Debug.Log("Tracking Image");
-        Debug.Log(trackable.cek);
+        return trackable.cek;
     }
 }
