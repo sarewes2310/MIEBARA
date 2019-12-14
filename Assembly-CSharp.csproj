@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\CardPopup2D.cs" />
      <Compile Include="Assets\Click_object.cs" />
+     <Compile Include="Assets\Scripts\MyTrackableEventHandler.cs" />
      <Compile Include="Assets\Scripts\Utama.cs" />
      <Compile Include="Assets\testTouch.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

@@ -24,7 +24,7 @@ public class testTouch : MonoBehaviour
     void Update()
     {
         bool detection_cek = tracking_image("/ImageTarget");
-        //Debug.Log("TESTTT");
+        // Get Data Touch
         if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -66,6 +66,8 @@ public class testTouch : MonoBehaviour
                 }
             } 
         }
+
+        // Get Data MouseClick
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray_1 = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -108,6 +110,8 @@ public class testTouch : MonoBehaviour
                 }
             }
         }
+        
+        //Cek Gambar Terdeteksi
         if(detection_cek == false)
         {
             if(count_detect){
@@ -123,7 +127,10 @@ public class testTouch : MonoBehaviour
                 if(detail_dalam == true) enable_disable_line_object_dalam(false);
                 count_detect = true;
             }
+            //count_detect = true;
         }
+
+        // Membuat Garis Realtime
         if(detail_luar && detection_cek)
         {
             if(cell_body != null && cell_body_label != null)
@@ -166,7 +173,6 @@ public class testTouch : MonoBehaviour
                 nukleus_line.SetPosition(1, nukleus_label.transform.position);
             }
         }
-        //falling_card();
     }
 
     /*
@@ -381,21 +387,71 @@ public class testTouch : MonoBehaviour
     public void trigger_inisialisasi_line(bool cek)
     {
         if(tracking_image("/ImageTarget")){
+            //MeshRenderer cell = cell_body.GetComponent<MeshRenderer>();
+            //cell.renderer.enabled = false;
+            Color cell_body_color = cell_body.GetComponent<MeshRenderer>().material.color;
+            Color myelin_color = myelin.GetComponent<MeshRenderer>().material.color;
+            Color dendrite_color = dendrite.GetComponent<MeshRenderer>().material.color;
+            Color sinapsis_color = sinapsis.GetComponent<MeshRenderer>().material.color;
+        
             if(cek == true)
             {
-                if(detail_dalam == true) destroy_line_object_dalam();
-                initialitation_line_luar();
+                if(detail_dalam == true) 
+                {
+                    change_opacity(1.0f, cell_body, cell_body_color);
+                    initialitation_line_luar();
+                    destroy_line_object_dalam();
+                }
+                if(detail_luar == false && detail_dalam == false)
+                {
+                    change_opacity(1.0f, cell_body, cell_body_color);
+                    initialitation_line_luar();
+                }
                 detail_luar = true;
                 detail_dalam = false;
             }else
             {
-                if(detail_luar == true) destroy_line_object_luar();
-                initialitation_line_dalam();
+                if(detail_luar == true) 
+                {
+                    change_opacity(0.3f, cell_body, cell_body_color);
+                    destroy_line_object_luar();
+                    initialitation_line_dalam();
+                }
+                if(detail_luar == false && detail_dalam == false) {
+                    change_opacity(0.3f, cell_body, cell_body_color);
+                    initialitation_line_dalam();
+                }
                 detail_luar = false;
                 detail_dalam = true;
             }
             //count_detect = true;
         }
+    }
+
+    /*
+    * -------------------------------------------- KETERANGAN -------------------------------------------------
+    * NAMA : void change_opacity(float opacity, GameObject cell_body, Color cell_body_color)
+    * DESKRIPSI:
+    * Fungsi yang digunakan untuk menutup popup dari detail materi
+    * PARAMETER:
+    * float opacity = "NILAI TRANSPARENT"
+    * GameObject cell_body = "OBJECT DARI CELL"
+    * Color cell_body_color = "WARNA OBJECT DARI CELL"
+    * STATUS :
+    * Process
+    * ----------------------------------------------------------------------------------------------------------
+    */
+    void change_opacity(float opacity, GameObject cell_body, Color cell_body_color)
+    {
+        int i = 0;
+        while(i < 12)
+        {
+            GameObject capsul = GameObject.Find("/ImageTarget/neuron/Nulo_/myelin/Cápsula_"+i.ToString());
+            Color capsul_color = capsul.GetComponent<MeshRenderer>().material.color;
+            capsul.GetComponent<MeshRenderer>().material.color = new Color(capsul_color.r, capsul_color.g, capsul_color.b, opacity);    
+            i = i + 1;
+        }
+        cell_body.GetComponent<MeshRenderer>().material.color = new Color(cell_body_color.r, cell_body_color.g, cell_body_color.b, opacity);
     }
 
     /*
@@ -510,13 +566,13 @@ public class testTouch : MonoBehaviour
     * PARAMETER:
     * string image_target_name = "NAMA OBJECT"
     * STATUS :
-    * Process
+    * Done
     * ----------------------------------------------------------------------------------------------------------
     */
     bool tracking_image(string image_target_name)
     {
         GameObject image_target = GameObject.Find(image_target_name);
-        DefaultTrackableEventHandler trackable = image_target.GetComponent<DefaultTrackableEventHandler>();
+        MyTrackableEventHandler trackable = image_target.GetComponent<MyTrackableEventHandler>();
         return trackable.cek;
     }
 }
