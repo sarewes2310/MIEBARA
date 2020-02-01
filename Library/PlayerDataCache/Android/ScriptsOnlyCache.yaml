@@ -1,7 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CanvasControl
     - CardPopup2D
+    - ChangeScene
+    - ClosePopup
+    - InfoControl
+    - MyTrackableEventHandler
+    - Quit
     - testTouch
     Unity.TextMeshPro.dll:
     - TMPro.TMP_ColorGradient
@@ -22,6 +28,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
     Vuforia.UnityExtensions.dll:
     - Vuforia.ImageTargetBehaviour
@@ -32,7 +39,7 @@ ScriptsOnlyBuild:
     - DefaultInitializationErrorHandler
     - DefaultTrackableEventHandler
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/MainMenu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -55,11 +62,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 65
+    - Class: 82
       Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -68,51 +73,140 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9760}
+      Script: {instanceID: 9762}
     - Class: 114
-      Script: {instanceID: 9912}
+      Script: {instanceID: 9914}
     - Class: 114
-      Script: {instanceID: 9954}
+      Script: {instanceID: 9956}
     - Class: 114
-      Script: {instanceID: 9968}
+      Script: {instanceID: 10254}
     - Class: 114
-      Script: {instanceID: 10228}
+      Script: {instanceID: 10280}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10334}
     - Class: 114
-      Script: {instanceID: 10336}
+      Script: {instanceID: 10346}
     - Class: 114
-      Script: {instanceID: 10358}
+      Script: {instanceID: 10368}
     - Class: 114
-      Script: {instanceID: 10448}
+      Script: {instanceID: 10490}
     - Class: 114
-      Script: {instanceID: 10470}
+      Script: {instanceID: 10902}
     - Class: 114
-      Script: {instanceID: 10478}
+      Script: {instanceID: 10914}
+    - Class: 114
+      Script: {instanceID: 10924}
+    - Class: 114
+      Script: {instanceID: 10976}
+    - Class: 114
+      Script: {instanceID: 11122}
+    - Class: 114
+      Script: {instanceID: 11138}
+    - Class: 114
+      Script: {instanceID: 11262}
+    - Class: 114
+      Script: {instanceID: 11324}
+    - Class: 114
+      Script: {instanceID: 11364}
+    - Class: 114
+      Script: {instanceID: 11386}
+    - Class: 114
+      Script: {instanceID: 11552}
+    - Class: 114
+      Script: {instanceID: 11664}
+    - Class: 114
+      Script: {instanceID: 11834}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 1183024399
+      Script: {instanceID: 0}
+    Assets/Scenes/SampleScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9762}
+    - Class: 114
+      Script: {instanceID: 9914}
+    - Class: 114
+      Script: {instanceID: 9956}
+    - Class: 114
+      Script: {instanceID: 9970}
+    - Class: 114
+      Script: {instanceID: 10220}
+    - Class: 114
+      Script: {instanceID: 10234}
+    - Class: 114
+      Script: {instanceID: 10254}
+    - Class: 114
+      Script: {instanceID: 10334}
+    - Class: 114
+      Script: {instanceID: 10346}
+    - Class: 114
+      Script: {instanceID: 10458}
     - Class: 114
       Script: {instanceID: 10480}
     - Class: 114
-      Script: {instanceID: 10892}
+      Script: {instanceID: 10488}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 10902}
     - Class: 114
-      Script: {instanceID: 11108}
+      Script: {instanceID: 11094}
     - Class: 114
-      Script: {instanceID: 11124}
+      Script: {instanceID: 11122}
     - Class: 114
-      Script: {instanceID: 11248}
+      Script: {instanceID: 11262}
     - Class: 114
-      Script: {instanceID: 11310}
+      Script: {instanceID: 11324}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11536}
+      Script: {instanceID: 11656}
     - Class: 114
-      Script: {instanceID: 11640}
-    - Class: 114
-      Script: {instanceID: 11648}
-    - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11834}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -130,8 +224,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 258
-      Script: {instanceID: 0}
-    - Class: 1183024399
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -226,7 +318,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 0044641610c1816df027bdb1f3866636
+      Hash: 0c1df6b631b26b9356fc5feb5d73d262
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: testTouch
@@ -236,6 +328,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneChoose
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -298,6 +396,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 25d18591e085f3cd70c7f8a46167a247
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MyTrackableEventHandler
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: VuforiaScripts.dll
     namespaceName: 
@@ -316,6 +420,12 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeScene
+  - hash:
+      serializedVersion: 2
       Hash: 4d16cfbaa8e821a2b370e80844a0e9bc
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -326,6 +436,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: WarpTextExample
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Quit
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -832,10 +948,22 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InfoControl
+  - hash:
+      serializedVersion: 2
       Hash: feb9a5a121d15fa3654d4e50a5233045
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 1d4783043dfe144a25208a4df3c5286c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CanvasControl
   - hash:
       serializedVersion: 2
       Hash: e244702e0dc05782229aa524e4d757f5
@@ -946,7 +1074,7 @@ ScriptsOnlyBuild:
     className: TMP_TextInfoDebugTool
   - hash:
       serializedVersion: 2
-      Hash: cfac9d7d99b9fcfc55f5e30d9d3bfda1
+      Hash: 34bd7b9b39583342887358483aa06402
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardPopup2D
@@ -980,6 +1108,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClosePopup
   - hash:
       serializedVersion: 2
       Hash: 27e5341178f188b89bdc6495710b590c
@@ -1582,5 +1716,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
+  - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Documents/materi kuliah/Semester 7/Mobile Application/UAS Mobapp/test_1.apk
+  playerPath: D:/ProgramData/Unity/UAS Mobapp/MIEBARA.apk

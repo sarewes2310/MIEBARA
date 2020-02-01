@@ -12,12 +12,14 @@ public class testTouch : MonoBehaviour
     public bool detail_luar = false, detail_dalam = false, count_detect = false;
     private List<string> isi_materi = new List<string>();
     private List<string> title_materi = new List<string>();
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         load_data();
         inisialisasi_materi();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -123,6 +125,7 @@ public class testTouch : MonoBehaviour
         {
             if(count_detect == false)
             {
+                audioSource.Play();
                 if(detail_luar == true) enable_disable_line_object_luar(false);
                 if(detail_dalam == true) enable_disable_line_object_dalam(false);
                 count_detect = true;
